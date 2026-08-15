@@ -62,3 +62,9 @@ body {
 .text-balance {
   text-wrap: balance;
 }
+
+/* Nav is fixed (not in normal flow), so anchor-jumps need explicit
+   clearance or headings land tucked behind it. */
+section[id] {
+  scroll-margin-top: 6rem;
+}
