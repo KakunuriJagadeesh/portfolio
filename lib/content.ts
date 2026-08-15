@@ -1,8 +1,3 @@
-/**
- * All portfolio content lives here.
- * Edit this file to update the site — no HTML changes needed.
- */
-
 export const profile = {
   name: "Jagadeesh Kakunuri",
   title: "Senior Software Engineer",
@@ -11,8 +6,8 @@ export const profile = {
   email: "jagadeeshkakunuri@gmail.com",
   phone: "+91 9872899566",
   linkedin: "https://linkedin.com/in/jagadeesh-kakunuri",
-  github: "", // add your GitHub URL, e.g. "https://github.com/username"
-  resumeUrl: "assets/Jagadeesh_Kakunuri_Resume.pdf",
+  github: "",
+  resumeUrl: "/assets/Jagadeesh_Kakunuri_Resume.pdf",
   summary:
     "Senior backend engineer with 5+ years building scalable distributed systems, event-driven microservices, and enterprise platforms in Java, Scala, and Spring Boot. I work on high-throughput REST APIs, asynchronous messaging, and resilient service architectures using Kafka, Redis, MongoDB, and Elasticsearch — across financial trading, supplier compliance, and OTT streaming domains.",
 };
@@ -24,40 +19,32 @@ export const stats = [
   { value: "0", label: "Downtime on migration" },
 ];
 
-export const skills = [
-  {
-    group: "Languages",
-    items: ["Java", "Scala", "TypeScript", "SQL"],
-  },
-  {
-    group: "Frameworks",
-    items: ["Spring Boot", "Akka HTTP", "Play Framework", "Spring Security", "React"],
-  },
-  {
-    group: "Data & Storage",
-    items: ["MySQL", "MongoDB", "Redis", "Elasticsearch"],
-  },
-  {
-    group: "Messaging & Infra",
-    items: ["Kafka", "RabbitMQ", "ActiveMQ Artemis", "Docker", "Git"],
-  },
-  {
-    group: "Cloud & AI",
-    items: ["AWS", "LLM Integration", "Prompt Engineering", "LangChain", "Agentic AI"],
-  },
+export type SkillGroup = { group: string; items: string[] };
+
+export const skills: SkillGroup[] = [
+  { group: "Languages", items: ["Java", "Scala", "TypeScript", "SQL"] },
+  { group: "Frameworks", items: ["Spring Boot", "Akka HTTP", "Play Framework", "Spring Security", "React"] },
+  { group: "Data & Storage", items: ["MySQL", "MongoDB", "Redis", "Elasticsearch"] },
+  { group: "Messaging & Infra", items: ["Kafka", "RabbitMQ", "ActiveMQ Artemis", "Docker", "Git"] },
+  { group: "Cloud & AI", items: ["AWS", "LLM Integration", "Prompt Engineering", "LangChain", "Agentic AI"] },
   {
     group: "Practices",
-    items: [
-      "Event-Driven Architecture",
-      "Distributed Caching",
-      "Fault Tolerance",
-      "Performance Tuning",
-      "Observability",
-    ],
+    items: ["Event-Driven Architecture", "Distributed Caching", "Fault Tolerance", "Performance Tuning", "Observability"],
   },
 ];
 
-export const experience = [
+export type ExperienceEntry = {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  domain: string;
+  blurb: string;
+  highlights: string[];
+  stack: string[];
+};
+
+export const experience: ExperienceEntry[] = [
   {
     company: "Bank of America",
     role: "Senior Software Engineer",
@@ -101,8 +88,7 @@ export const experience = [
     period: "May 2024 – Dec 2024",
     location: "Hyderabad, India",
     domain: "OTT Streaming",
-    blurb:
-      "Content ingestion and search infrastructure for live and video-on-demand streaming at partner scale.",
+    blurb: "Content ingestion and search infrastructure for live and video-on-demand streaming at partner scale.",
     highlights: [
       "Designed scalable OTT content ingestion services in Scala and Akka HTTP supporting live and VOD streaming.",
       "Built RESTful integrations for premium partners including SonyLIV and News9Plus, enabling automated content onboarding and metadata sync.",
@@ -118,8 +104,7 @@ export const experience = [
     period: "Mar 2022 – May 2024",
     location: "Bengaluru, India",
     domain: "Enterprise Monitoring",
-    blurb:
-      "Infrastructure monitoring, automated incident response, and background job orchestration for enterprise systems.",
+    blurb: "Infrastructure monitoring, automated incident response, and background job orchestration for enterprise systems.",
     highlights: [
       "Extended the enterprise Hyperic monitoring platform with ADR, DCFC, automated incident creation, and infrastructure monitoring.",
       "Designed DHCP monitoring services to proactively detect IPv4/IPv6 exhaustion and auto-generate incident tickets.",
@@ -131,86 +116,51 @@ export const experience = [
   },
 ];
 
-export const projects = [
+export type RoadmapStatus = "in-progress" | "exploring" | "planned";
+
+export type RoadmapItem = {
+  title: string;
+  status: RoadmapStatus;
+  description: string;
+};
+
+// Forward-looking — where I'm deliberately pushing depth next. Edit freely.
+export const roadmap: RoadmapItem[] = [
   {
-    name: "Self-Service Configuration Platform",
-    context: "Avetta",
-    problem:
-      "Supplier onboarding rules were hard-coded, so every new client configuration required an engineering release cycle and was error-prone.",
-    approach:
-      "Built a JSON-driven configuration engine over Scala/Akka HTTP and Spring Boot microservices with MongoDB-backed schema storage and dynamic validation rules evaluated at request time. Kafka decoupled ingestion from processing so high-volume onboarding bursts were absorbed asynchronously.",
-    outcome:
-      "Business teams configure onboarding workflows without engineering involvement. Configuration errors dropped by over 80%.",
-    stack: ["Scala", "Akka HTTP", "Spring Boot", "Kafka", "MongoDB", "Redis"],
-    tags: ["Event-Driven", "Platform"],
+    title: "Agentic AI at production scale",
+    status: "in-progress",
+    description:
+      "Extending the LLM validation work from Avetta into multi-agent orchestration — agents that coordinate across services, not just single-shot prompts.",
   },
   {
-    name: "AI-Assisted Validation & Remediation",
-    context: "Avetta",
-    problem:
-      "Suppliers submitting invalid compliance data generated large volumes of manual review work and slow back-and-forth cycles.",
-    approach:
-      "Integrated LLM-driven validation into the onboarding pipeline using prompt engineering, generating targeted remediation suggestions inline rather than generic error codes.",
-    outcome:
-      "Reduced manual review effort and shortened the correction loop for supplier submissions.",
-    stack: ["LLMs", "Prompt Engineering", "LangChain", "Java"],
-    tags: ["AI/LLM"],
+    title: "Low-latency system design",
+    status: "in-progress",
+    description:
+      "Specializing in high-throughput, low-latency patterns for capital markets workloads — the performance ceiling above typical REST/CRUD systems.",
   },
   {
-    name: "Intraday Position Processing Services",
-    context: "Bank of America",
-    problem:
-      "Real-time trade position updates must be processed accurately and fast across multiple regional deployments with no tolerance for data loss.",
-    approach:
-      "Built Java/Spring Boot services with layered validation frameworks, retry and exception-handling strategies, and production monitoring hooks. Tuned processing pipelines for latency and throughput.",
-    outcome:
-      "Improved latency and throughput on real-time position updates while maintaining high availability across regions.",
-    stack: ["Java", "Spring Boot", "REST", "SQL"],
-    tags: ["FinTech", "Reliability"],
+    title: "Kubernetes & cloud-native orchestration",
+    status: "exploring",
+    description:
+      "Deepening container orchestration beyond Docker Compose — production-grade Kubernetes for the microservices I already run in Spring Boot and Akka.",
   },
   {
-    name: "OTT Content Ingestion & Search",
-    context: "YuppTV",
-    problem:
-      "Legacy ingestion workflows could not keep pace with partner content volume, and search latency hurt discoverability.",
-    approach:
-      "Rebuilt ingestion as Scala/Akka HTTP microservices with REST integrations for SonyLIV and News9Plus, added metadata classification pipelines, and layered Elasticsearch indexing with Redis caching in front of search.",
-    outcome:
-      "Low-latency search, improved recommendation accuracy, and a full migration off the legacy system with zero production downtime.",
-    stack: ["Scala", "Akka HTTP", "Elasticsearch", "Redis"],
-    tags: ["Streaming", "Search"],
+    title: "Vector search & RAG infrastructure",
+    status: "exploring",
+    description:
+      "Building out retrieval infrastructure — vector databases, embedding pipelines — to support LLM-driven remediation work with real production-scale retrieval.",
   },
   {
-    name: "DHCP Exhaustion Monitoring",
-    context: "LTIMindtree",
-    problem:
-      "IPv4/IPv6 pool exhaustion was detected reactively, after users were already affected.",
-    approach:
-      "Designed monitoring services that track address pool utilization and automatically open incident tickets ahead of exhaustion thresholds.",
-    outcome: "Shifted address-pool incidents from reactive to proactive detection.",
-    stack: ["Java", "Hyperic", "Monitoring"],
-    tags: ["Infrastructure"],
+    title: "Stream processing beyond Kafka",
+    status: "planned",
+    description:
+      "Moving from Kafka-as-message-bus into stateful stream processing — Flink or ksqlDB — for real-time aggregation on trade and event data.",
   },
   {
-    name: "Microservices Banking Platform",
-    context: "Personal project",
-    problem:
-      "Wanted a full reference implementation of a production-shaped microservices system end to end.",
-    approach:
-      "Spring Boot services with OAuth2 security, role-based access control, CSRF protection, RabbitMQ asynchronous messaging, Eureka service discovery, centralized configuration, and Dockerized deployment.",
-    outcome:
-      "Complete observability stack via Prometheus and Grafana across all services.",
-    stack: [
-      "Spring Boot",
-      "OAuth2",
-      "RabbitMQ",
-      "Eureka",
-      "Docker",
-      "Prometheus",
-      "Grafana",
-    ],
-    tags: ["Open Source", "Architecture"],
-    // repo: "https://github.com/username/repo",
+    title: "Go for performance-critical services",
+    status: "planned",
+    description:
+      "Picking up Go as a second systems language for services where JVM startup time and GC pauses aren't acceptable.",
   },
 ];
 
@@ -228,3 +178,11 @@ export const certifications = [
 ];
 
 export const interests = ["Blogging", "Sports", "Traveling", "Bike Rides"];
+
+export const navLinks = [
+  { href: "#about", label: "About" },
+  { href: "#stack", label: "Stack" },
+  { href: "#experience", label: "Experience" },
+  { href: "#roadmap", label: "Roadmap" },
+  { href: "#contact", label: "Contact" },
+];
