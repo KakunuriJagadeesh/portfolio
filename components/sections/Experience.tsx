@@ -13,10 +13,10 @@ export function Experience() {
   const lineScale = useTransform(scrollYProgress, [0, 1], [0, 1]);
 
   return (
-    <section id="experience" className="px-6 py-28">
+    <section id="experience" className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
-          <SectionHeading num="03" title="Experience" />
+          <SectionHeading num="05" title="Experience" />
         </RevealOnScroll>
 
         <div ref={containerRef} className="relative mt-12 pl-8 sm:pl-10">

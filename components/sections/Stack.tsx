@@ -4,10 +4,10 @@ import { skills } from "@/lib/content";
 
 export function Stack() {
   return (
-    <section id="stack" className="px-6 py-28">
+    <section id="stack" className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
-          <SectionHeading num="02" title="Technical stack" />
+          <SectionHeading num="04" title="Technical stack" />
         </RevealOnScroll>
 
         <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">

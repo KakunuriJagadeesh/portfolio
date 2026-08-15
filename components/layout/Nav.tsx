@@ -1,10 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { navLinks, profile } from "@/lib/content";
+import { navLinks, profile, sectionNav } from "@/lib/content";
+
+function sectionId(href: string) {
+  return href.split("#")[1] ?? "";
+}
 
 export function Nav() {
+  const pathname = usePathname();
+  const isServicesPage = pathname.startsWith("/services");
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 30, mass: 0.2 });
   const [active, setActive] = useState("about");
@@ -21,8 +28,8 @@ export function Nav() {
   }, []);
 
   useEffect(() => {
-    const sections = navLinks
-      .map((l) => document.getElementById(l.href.slice(1)))
+    const sections = sectionNav
+      .map((l) => document.getElementById(sectionId(l.href)))
       .filter((el): el is HTMLElement => el !== null);
 
     const observer = new IntersectionObserver(
@@ -52,15 +59,18 @@ export function Nav() {
           {profile.name}
         </a>
         <nav className="hidden gap-8 text-sm text-text-muted sm:flex">
-          {navLinks.map((l) => (
-            <a
-              key={l.href}
-              href={l.href}
-              className={`transition-colors hover:text-text ${active === l.href.slice(1) ? "text-accent" : ""}`}
-            >
-              {l.label}
-            </a>
-          ))}
+          {navLinks.map((l) => {
+            const isActive = l.href === "/services" ? isServicesPage : !isServicesPage && active === sectionId(l.href);
+            return (
+              <a
+                key={l.href}
+                href={l.href}
+                className={`transition-colors hover:text-text ${isActive ? "text-accent" : ""}`}
+              >
+                {l.label}
+              </a>
+            );
+          })}
         </nav>
         <button
           type="button"
@@ -78,7 +88,7 @@ export function Nav() {
       {menuOpen && (
         <div className="border-t border-border bg-bg px-6 py-4 sm:hidden">
           <nav className="flex flex-col gap-4 text-sm">
-            {navLinks.map((l) => (
+            {sectionNav.map((l) => (
               <a
                 key={l.href}
                 href={l.href}

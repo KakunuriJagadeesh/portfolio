@@ -11,10 +11,10 @@ export function Contact() {
   ].filter((c) => c.href);
 
   return (
-    <section id="contact" className="px-6 py-28">
+    <section id="contact" className="px-6 py-16">
       <div className="mx-auto max-w-3xl text-center">
         <RevealOnScroll index={0}>
-          <span className="font-mono text-sm text-accent">06</span>
+          <span className="font-mono text-sm text-accent">08</span>
           <h2 className="mt-4 text-balance font-display text-4xl font-semibold tracking-tight sm:text-5xl">
             Let&apos;s build something that scales.
           </h2>

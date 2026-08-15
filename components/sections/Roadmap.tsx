@@ -22,11 +22,11 @@ const STATUS_LABEL: Record<RoadmapStatus, string> = {
 
 export function Roadmap() {
   return (
-    <section id="roadmap" className="px-6 py-28">
+    <section id="roadmap" className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
           <SectionHeading
-            num="04"
+            num="06"
             title="What's next"
             lede="The road ahead — where I'm deliberately pushing depth next, beyond what's already shipped in production."
           />
