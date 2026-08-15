@@ -4,10 +4,10 @@ import { certifications } from "@/lib/content";
 
 export function Certifications() {
   return (
-    <section id="certs" className="px-6 py-28">
+    <section id="certs" className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
-          <SectionHeading num="06" title="Certifications" />
+          <SectionHeading num="07" title="Certifications" />
         </RevealOnScroll>
 
         <div className="mt-12 grid gap-3 sm:grid-cols-2">

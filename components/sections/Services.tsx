@@ -1,6 +1,7 @@
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { services, type ServiceItem } from "@/lib/content";
+import { MagneticButton } from "@/components/ui/MagneticButton";
+import { buildPrinciples, profile, services, type ServiceItem } from "@/lib/content";
 
 function IconApi() {
   return (
@@ -71,13 +72,12 @@ const ICONS: Record<ServiceItem["icon"], () => React.JSX.Element> = {
 
 export function Services() {
   return (
-    <section id="services" className="px-6 py-28">
+    <section id="services" className="px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
           <SectionHeading
-            num="05"
-            title="What I can take on"
-            lede="Scoped engagements grounded in what I've actually shipped — not a generic services menu."
+            title="What I Build"
+            lede="From distributed systems to agentic AI — I turn complex engineering problems into production-ready systems."
           />
         </RevealOnScroll>
 
@@ -93,12 +93,53 @@ export function Services() {
                 <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent/10 text-accent">
                   <Icon />
                 </div>
-                <h3 className="mt-4 font-medium text-text">{service.title}</h3>
+                <span className="mt-4 block text-xs font-medium uppercase tracking-wider text-text-faint">
+                  {service.verb}
+                </span>
+                <h3 className="mt-1 font-medium text-text">{service.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-text-muted">{service.description}</p>
+                <div className="mt-4 flex flex-wrap gap-1.5">
+                  {service.keywords.map((keyword) => (
+                    <span
+                      key={keyword}
+                      className="rounded-full border border-border-strong bg-bg-elevated-2 px-2.5 py-1 text-[11px] text-text-muted"
+                    >
+                      {keyword}
+                    </span>
+                  ))}
+                </div>
               </RevealOnScroll>
             );
           })}
         </div>
+
+        <RevealOnScroll index={6} className="mt-16 rounded-2xl border border-border bg-bg-elevated p-8">
+          <h3 className="font-display text-xl font-semibold text-text sm:text-2xl">Built for real-world problems.</h3>
+          <p className="mt-2 max-w-2xl text-sm text-text-muted sm:text-base">
+            I focus on systems that need to{" "}
+            <span className="text-text">scale, recover, integrate, and deliver measurable impact</span> — not just
+            pass a demo.
+          </p>
+
+          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {buildPrinciples.map((point) => (
+              <div key={point.title}>
+                <h4 className="font-medium text-text">{point.title}</h4>
+                <p className="mt-1 text-sm text-text-muted">{point.description}</p>
+              </div>
+            ))}
+          </div>
+
+          <MagneticButton
+            href={`mailto:${profile.email}`}
+            className="mt-8 inline-flex items-center gap-2 rounded-full bg-accent px-6 py-3 text-sm font-medium text-[#06060a]"
+          >
+            Get in touch
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </MagneticButton>
+        </RevealOnScroll>
       </div>
     </section>
   );

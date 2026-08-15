@@ -28,6 +28,8 @@
   --font-sans: var(--font-inter);
   --font-display: var(--font-display);
   --font-mono: var(--font-mono);
+  --font-serif: var(--font-serif);
+  --font-hand: var(--font-hand);
 }
 
 html,
@@ -61,6 +63,12 @@ body {
 
 .text-balance {
   text-wrap: balance;
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.14) 1px, transparent 1px);
+  background-size: 26px 26px;
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 30%, black 35%, transparent 85%);
 }
 
 /* Nav is fixed (not in normal flow), so anchor-jumps need explicit

@@ -13,7 +13,7 @@ const FOCUS = [
 
 export function About() {
   return (
-    <section id="about" className="px-6 py-28">
+    <section id="about" className="px-6 pb-16 pt-12 sm:pt-16">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
           <SectionHeading num="01" title="About" />
@@ -22,27 +22,16 @@ export function About() {
         <div className="mt-12 grid gap-12 lg:grid-cols-[1.4fr_1fr]">
           <RevealOnScroll index={1} className="space-y-5 text-base leading-relaxed text-text-muted sm:text-lg">
             <p>
-              I build the parts of a system that have to keep working when traffic spikes, a downstream service
-              dies, or someone deploys at 4pm on a Friday.
+              I started with distributed systems and backend engineering — building event-driven services,
+              high-throughput APIs, and data-heavy platforms across capital markets, supply chain, OTT, and
+              enterprise infrastructure.
             </p>
             <p>
-              Most of my work sits at the intersection of <span className="text-text">event-driven architecture</span>{" "}
-              and <span className="text-text">data-heavy backends</span> — Kafka pipelines that absorb bursty load,
-              JSON-driven configuration engines that let business teams move without an engineering release,
-              Elasticsearch and Redis layers that keep search under threshold, and validation frameworks that fail
-              loudly and recover gracefully.
+              Over time, my focus moved toward AI-native systems. Today I work with LLMs, RAG, agent orchestration,
+              tool calling, memory, structured outputs, and multi-step workflows — connecting AI to real backend
+              systems instead of keeping it isolated as a chatbot.
             </p>
-            <p>
-              I&apos;ve shipped in four fairly different domains — capital markets, supply chain compliance, OTT
-              streaming, and enterprise infrastructure monitoring. The constant across all of them has been the same
-              set of concerns: correctness under concurrency, sane failure modes, and systems that a person on-call
-              can actually reason about.
-            </p>
-            <p>
-              Recently I&apos;ve been integrating <span className="text-text">LLM-driven workflows</span> into
-              production backends — not as a demo layer, but for validation and remediation paths where a model
-              genuinely reduces manual review work.
-            </p>
+            <p>I like building systems that can reason, act, recover, and scale.</p>
           </RevealOnScroll>
 
           <div className="space-y-6">
