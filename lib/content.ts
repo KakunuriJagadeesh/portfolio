@@ -164,6 +164,52 @@ export const roadmap: RoadmapItem[] = [
   },
 ];
 
+export type ServiceItem = {
+  title: string;
+  description: string;
+  icon: "api" | "events" | "architecture" | "migration" | "ai" | "reliability";
+};
+
+// What I can take on for a client/team, grounded in what I've actually shipped.
+export const services: ServiceItem[] = [
+  {
+    title: "Backend & API Development",
+    description:
+      "High-throughput REST APIs and service integrations in Java, Scala, and Spring Boot — designed for correctness under load, not just to pass a demo.",
+    icon: "api",
+  },
+  {
+    title: "Distributed Systems & Event-Driven Architecture",
+    description:
+      "Kafka-based pipelines, async messaging, and service-to-service communication that stays resilient when a downstream dependency has a bad day.",
+    icon: "events",
+  },
+  {
+    title: "System Architecture Consulting",
+    description:
+      "Design reviews for teams scaling past a monolith — where to introduce caching, queues, or read replicas, and just as importantly, where not to.",
+    icon: "architecture",
+  },
+  {
+    title: "Legacy System Modernization",
+    description:
+      "Migrating brittle, hard-coded workflows into configurable, JSON-driven platforms — the kind of migration that ships with zero downtime, not a maintenance window.",
+    icon: "migration",
+  },
+  {
+    title: "LLM Integration for Backend Workflows",
+    description:
+      "Wiring LLMs into production validation and remediation paths — not a chatbot bolted on the side, but a model that measurably reduces manual review work.",
+    icon: "ai",
+  },
+  {
+    title: "Production Support & Reliability",
+    description:
+      "Root cause analysis, incident response, and the unglamorous work of making a system boring to operate.",
+    icon: "reliability",
+  },
+];
+
 export const education = {
   school: "Lovely Professional University",
   degree: "Bachelor of Technology",
@@ -184,5 +230,6 @@ export const navLinks = [
   { href: "#stack", label: "Stack" },
   { href: "#experience", label: "Experience" },
   { href: "#roadmap", label: "Roadmap" },
+  { href: "#services", label: "Services" },
   { href: "#contact", label: "Contact" },
 ];

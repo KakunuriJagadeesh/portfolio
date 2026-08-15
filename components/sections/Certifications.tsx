@@ -7,7 +7,7 @@ export function Certifications() {
     <section id="certs" className="px-6 py-28">
       <div className="mx-auto max-w-6xl">
         <RevealOnScroll index={0}>
-          <SectionHeading num="05" title="Certifications" />
+          <SectionHeading num="06" title="Certifications" />
         </RevealOnScroll>
 
         <div className="mt-12 grid gap-3 sm:grid-cols-2">

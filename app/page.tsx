@@ -7,6 +7,7 @@ import { About } from "@/components/sections/About";
 import { Stack } from "@/components/sections/Stack";
 import { Experience } from "@/components/sections/Experience";
 import { Roadmap } from "@/components/sections/Roadmap";
+import { Services } from "@/components/sections/Services";
 import { Certifications } from "@/components/sections/Certifications";
 import { Contact } from "@/components/sections/Contact";
 
@@ -28,6 +29,7 @@ export default function Home() {
         <Stack />
         <Experience />
         <Roadmap />
+        <Services />
         <Certifications />
         <Contact />
       </main>
